@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # verb "/urls" => "namespace/controllers#action"
   namespace :client do
     get '/products' => 'products#index'
+    get '/products/new' => 'products#new'
     get '/products/:id' => 'products#show'
+    post '/products' => 'products#create'
   end
 end
