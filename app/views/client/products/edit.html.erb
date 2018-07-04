@@ -16,3 +16,7 @@ Edit a product here!
   <input type="submit" value="Edit a product"><br>
   <a href="/client/products">Click here to return to all products</a>
 <% end %>
+
+<%= form_tag "/client/products/#{@product['id']}", method: :delete do %>
+  <input type="submit" value="Obliterate this product?">
+<% end %>

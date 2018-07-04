@@ -47,4 +47,10 @@ class Client::ProductsController < ApplicationController
     @product = response.body
     render "show.html.erb"
   end
+
+  def destroy
+    product_id = params[:id]
+    response = Unirest.delete("localhost:3000/api/products/#{product_id}")
+    render "destroy.html.erb"
+  end
 end
