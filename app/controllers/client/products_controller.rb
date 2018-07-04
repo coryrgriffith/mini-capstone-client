@@ -28,4 +28,11 @@ class Client::ProductsController < ApplicationController
     @product = response.body
     render "show.html.erb"
   end
+
+  def edit
+    product_id = params[:id]
+    response = Unirest.get("localhost:3000/api/products/#{product_id}")
+    @product = response.body
+    render "edit.html.erb"
+  end
 end
