@@ -15,7 +15,10 @@
     <p>Everday Value</p>
   <% end %>
   <p><%= product['discounted'] %></p>
-  <p>image_url: <%= product['image_url']%></p>
+  <% product['images'].each do |image| %>
+    <p>image_url: <%= image['url'] %></p>
+  <% end %>
+  <p>image_url: <%= product['image_url'] %></p>
   <p>description: <%= product['description'] %></p>
   <a href="/client/products/<%= product['id'] %>/edit">Click here to edit this product</a>
   <hr>
