@@ -14,6 +14,9 @@
   <% else %>
     <p>Everday Value</p>
   <% end %>
+  <% product['categories'].each do |category| %>
+    <p>group: <%= category['name'] %></p>  
+  <% end %>
   <p><%= product['discounted'] %></p>
   <% product['images'].each do |image| %>
     <p>image_url: <%= image['url'] %></p>

@@ -14,7 +14,7 @@ class Client::OrdersController < ApplicationController
         }
       )
     order = response.body
-    redirect_to "show.html.erb"
+    redirect_to "/client/orders/#{order['id']}"
   end
 
   def new

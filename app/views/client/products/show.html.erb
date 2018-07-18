@@ -10,7 +10,9 @@
   <% else %>
     <p>Everday Value</p>
   <% end %>
-<p>images: <%= @product['images'] %></p>
+<% @product['categories'].each do |category| %>
+  <p>group: <%= category['name'] %></p>  
+<% end %>
 <% @product["images"].each do |image| %>
   <p><%= image['url'] %></p>
   <% end %>
