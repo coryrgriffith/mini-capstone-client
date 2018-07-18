@@ -3,7 +3,8 @@ class Client::ProductsController < ApplicationController
     input_name = params[:client_search]
     response = Unirest.get("localhost:3000/api/products",
       parameters: {
-        input_name: input_name
+        input_name: input_name,
+        category: params[:category]
       }
     )
     @products = response.body
