@@ -10,7 +10,21 @@
   <% else %>
     <p>Everday Value</p>
   <% end %>
-<p>image_url: <%= @product['image_url']%></p>
+<p>images: <%= @product['images'] %></p>
+<% @product["images"].each do |image| %>
+  <p><%= image['url'] %></p>
+  <% end %>
 <p>description: <%= @product['description'] %></p>
+<%= form_tag "/client/orders", method: :post do %>
+  <div>
+    <input type="hidden" name="input_product_id" value=" <%= @product['id'] %>" readonly>
+  </div>
+  <div>
+    Quantity: <input type="text" name="input_quantity">
+  </div>
+  <div>
+    <input type="submit" value="submit order here">
+  </div>
+<% end %>
 <a href="/client/products/<%= @product['id'] %>/edit">Click here to edit this product</a><br>
 <a href="/client/products">Click here to return to all products</a>
