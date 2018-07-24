@@ -1,5 +1,13 @@
 Edit a product here!
 
+<% if @errors %>
+  here are the errors
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+  there were the errors
+<% end %>
+
 <%= form_tag "/client/products/#{@product['id']}", method: :patch do %>
   <div>
     Name: <input type="text" name="input_name" value="<%= @product['name'] %>">
@@ -8,7 +16,7 @@ Edit a product here!
     Price: <input type="text" name="input_price" value="<%= @product['price'] %>">
   </div>
   <div>
-    Image_url: <input type="text" name="input_image_url" value="<%= @product['image_url'] %>">
+    Supplier ID: <input type="text" name="input_supplier_id" value="<%= @product['supplier_id'] %>">
   </div>
   <div>
     Description: <input type="text" name="input_description" value="<%= @product['description'] %>">

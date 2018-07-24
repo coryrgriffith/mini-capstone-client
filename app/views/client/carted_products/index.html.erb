@@ -1,0 +1,19 @@
+<% @carted_products.each do |carted_product| %>
+  <p>Carted_Product ID: <%= carted_product['id'] %></p>
+  <p>User ID: <%= carted_product['user_id'] %></p>
+  <p>user email: <%= carted_product['user']['email'] %></p>
+  <p>Product ID: <%= carted_product['product_id'] %></p>
+  <p>product name: <%= carted_product['product']['name'] %></p>
+  <p>Quantity: <%= carted_product['quantity'] %></p>
+  <p>Status: <%= carted_product['status'] %></p>
+  <p>Subtotal: <%= carted_product['cartedproduct']['subtotal'] %></p>
+  <p>Tax: <%= carted_product['cartedproduct']['tax'] %></p>
+  <p>Total: <%= carted_product['cartedproduct']['total'] %></p>
+  <a href="/client/carted_products/<%= carted_product['id'] %>" data-method="patch">Remove Item from cart</a>
+  <hr>
+<% end %>
+
+<%= form_tag "/client/orders", method: :post do %>
+  Number of items in Cart: <%= @carted_products.count %>
+  <input type="submit" value="Click here to purchase all items in your cart">
+<% end %>

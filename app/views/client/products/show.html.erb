@@ -17,15 +17,17 @@
   <p><%= image['url'] %></p>
   <% end %>
 <p>description: <%= @product['description'] %></p>
-<%= form_tag "/client/orders", method: :post do %>
+
+<h2>Use this form below to add to your cart</h2>
+<%= form_tag "/client/carted_products", method: :post do %>
   <div>
-    <input type="hidden" name="input_product_id" value=" <%= @product['id'] %>" readonly>
+    <input type="hidden" name="product_id" value=" <%= @product['id'] %>">
   </div>
   <div>
-    Quantity: <input type="text" name="input_quantity">
+    <input type="text" name="quantity">
   </div>
   <div>
-    <input type="submit" value="submit order here">
+    <input type="submit" name="add to cart">
   </div>
 <% end %>
 <a href="/client/products/<%= @product['id'] %>/edit">Click here to edit this product</a><br>

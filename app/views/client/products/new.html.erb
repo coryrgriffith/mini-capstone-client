@@ -1,21 +1,26 @@
 This form will allow you to create a new product
 
+<% if @errors %>
+  here are the errors
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+  there were the errors
+<% end %>
+
 <%= form_tag "/client/products", method: :post do %>
   <div>
-    Name: <input type="text" name="input_name">
+    Name: <input type="text" name="input_name" value="<%=@product[:input_name]%>">
   </div>
   <div>
-    Price: <input type="text" name="input_price">
+    Price: <input type="text" name="input_price" value="<%=@product[:input_price]%>">
   </div>
   <div>
-    Image_url: <input type="text" name="input_image_url">
+    Supplier ID: <input type="text" name="input_supplier_id" value="<%=@product[:input_supplier_id]%>">
   </div>
   <div>
-    Description: <input type="text" name="input_description">
+    Description: <input type="text" name="input_description" value="<%=@product[:input_description]%>">
   </div>
-  <<!-- div>
-    Supplier: <input type="text" name="">
-  </div> -->
   <input type="submit" value="Create a new product"><br>
   <a href="/client/products">Click here to return to all products</a>
 <% end %>

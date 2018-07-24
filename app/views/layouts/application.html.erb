@@ -13,12 +13,14 @@
     <% flash.each do |name, message| %>
       <%= message %>
     <% end %>
+    <a href="/client/products">view all products</a>
     <a href="/client/products?category=electronics">electronics</a>
     <a href="/client/products?category=office">office</a>
     <a href="/client/products?category=powerups">powerups</a>
     <a href="/client/signup">Sign Up</a>
     <a href="/client/login">Log In</a>
-    <a href="/client/logout" data-method="delete">Log Out</a>
+    <a href="/client/logout" data-method="delete">Log Out</a><br>
+    <a href="/client/carted_products">View Shopping Cart</a>
 
     <%= yield %><br>
     
