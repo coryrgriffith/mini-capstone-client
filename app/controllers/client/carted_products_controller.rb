@@ -3,7 +3,6 @@ class Client::CartedProductsController < ApplicationController
     response = Unirest.get("localhost:3000/api/carted_products")
     @carted_products = response.body
     render "index.html.erb"
-  end
 
   def new
     @message = "You Carted a Product!"

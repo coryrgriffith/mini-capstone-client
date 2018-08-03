@@ -3,46 +3,28 @@
   <input type="submit" value="Search by name here">
 <% end %>
 
-<% @products.each do |product| %>
+<% @products.each_slice(2) do |two_products| %>
+  <% @products.each do |product| %>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= product['name'] %></h5>
-          <p class="card-text"><%= product['description'] %></p>
-          <p class="card-text">Price: <%= product['price'] %></p>
-          <p class="card-text">
-            <% if product['discounted'] %>
-              <p>Discount Item</p>
-            <% else %>
-              <p>Everday Value</p>
-            <% end %>
-          </p>
-          <a href="/client/products/<%= product['id'] %>" class="btn btn-primary">Go To Product Page</a>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= product['name'] %></h5>
+            <p class="card-text"><%= product['description'] %></p>
+            <p class="card-text">Price: <%= product['price'] %></p>
+            <p class="card-text">
+              <% if product['discounted'] %>
+                <p>Discount Item</p>
+              <% else %>
+                <p>Everday Value</p>
+              <% end %>
+            </p>
+            <a href="/client/products/<%= product['id'] %>" class="btn btn-primary">Go To Product Page</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <p>id: <%= product['id'] %></p>
-  <p>name: <a href="/client/products/<%= product['id'] %>"><%= product['name'] %></a></p>
-  <p>price: <%= product['price'] %></p>
-  <p>tax: <%= product['tax'] %></p>
-  <p>total price: <%= product['total_price'] %></p>
-  <% if product['discounted'] %>
-    <p>Discount Item</p>
-  <% else %>
-    <p>Everday Value</p>
   <% end %>
-  <% product['categories'].each do |category| %>
-    <p>group: <%= category['name'] %></p>  
-  <% end %>
-  <p><%= product['discounted'] %></p>
-  <% product['images'].each do |image| %>
-    <p>image_url: <%= image['url'] %></p>
-  <% end %>
-  <p>description: <%= product['description'] %></p>
-  <a href="/client/products/<%= product['id'] %>/edit">Click here to edit this product</a>
-  <hr>
+  
 <% end %>
